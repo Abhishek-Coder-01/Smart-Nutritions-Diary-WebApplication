@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <title>Nutritions {% block title %}{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #10b981;
+            --primary-dark: #059669;
+            --primary-light: #34d399;
+            --secondary-color: #3b82f6;
+            --accent-color: #8b5cf6;
+            --dark-color: #1f2937;
+            --darker-color: #111827;
+            --light-color: #f8fafc;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --border-radius: 16px;
+            --border-radius-sm: 8px;
+            --box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --box-shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.2s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d1b69 100%);
+            background-size: cover;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            color: var(--light-color);
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        /* ========== ENHANCED NAVBAR ========== */
+        .navbar {
+            background: rgba(255, 255, 255, 0.05) !important;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .navbar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .navbar.scrolled::before {
+            opacity: 0.9;
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Page-specific navbar colors */
+        body[data-page="add"] .navbar::before {
+            background: linear-gradient(135deg, #10b981, #059669);
+            opacity: 0.95;
+        }
+
+        body[data-page="diary"] .navbar::before {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            opacity: 0.95;
+        }
+
+        body[data-page="delete"] .navbar::before {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            opacity: 0.95;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            color: white !important;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .navbar-brand::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-light), var(--accent-color));
+            transition: var(--transition);
+        }
+
+        .navbar-brand:hover::after {
+            width: 100%;
+        }
+
+        .navbar-brand:hover {
+            transform: translateY(-2px);
+            color: var(--primary-light) !important;
+        }
+
+        .navbar-brand i {
+            font-size: 2rem;
+            margin-right: 0.7rem;
+            background: linear-gradient(45deg, #10b981, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulse-glow 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.3));
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.3));
+            }
+
+            50% {
+                transform: scale(1.05);
+                filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.6));
+            }
+        }
+
+        /* Enhanced Navigation Links */
+        .nav-link {
+            font-weight: 600;
+            padding: 0.8rem 1.5rem !important;
+            margin: 0 0.3rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: rgba(255, 255, 255, 0.9) !important;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::before {
+            left: 100%;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+            color: white !important;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-link i {
+            margin-right: 0.6rem;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover i {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        /* Special styling for specific nav items */
+        .nav-link.add-food:hover {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.1));
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .nav-link.delete-food:hover {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.1));
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+        }
+
+        .nav-link.food-diary:hover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.1));
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Enhanced Login/Register Buttons */
+        .btn-auth {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-auth::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .btn-auth:hover::before {
+            opacity: 1;
+        }
+
+        .btn-auth:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: transparent;
+            color: white;
+        }
+
+        .btn-auth i {
+            margin-right: 0.5rem;
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-auth span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-auth.btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-color: var(--primary-color);
+        }
+
+        .btn-auth.btn-primary:hover {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Mobile Navbar Toggler Animation */
+        .navbar-toggler {
+            border: none;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition);
+        }
+
+        .navbar-toggler:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* ========== ENHANCED HERO SECTION ========== */
+        .hero-section {
+            text-align: center;
+            padding: 4rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+            animation: float-bg 20s ease-in-out infinite;
+        }
+
+        @keyframes float-bg {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(-10px) rotate(1deg);
+            }
+
+            66% {
+                transform: translateY(10px) rotate(-1deg);
+            }
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #ffffff 0%, #10b981 50%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Enhanced Hero Button */
+        .btn-hero {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(59, 130, 246, 0.2));
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 1.2rem 2.8rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+            backdrop-filter: blur(20px);
+            overflow: hidden;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .btn-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn-hero:hover::before {
+            left: 100%;
+        }
+
+        .btn-hero:hover::after {
+            opacity: 0.9;
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border-color: transparent;
+            color: white;
+        }
+
+        .btn-hero i {
+            margin-left: 0.8rem;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .btn-hero:hover i {
+            transform: translateX(5px) rotate(360deg);
+        }
+
+        /* ========== ENHANCED FEATURES SECTION ========== */
+        .features-section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: white;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+            height: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(59, 130, 246, 0.05));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            position: relative;
+            z-index: 2;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotateY(360deg);
+        }
+
+        .feature-card h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            font-size: 1.4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ========== WELCOME CARD ENHANCEMENT ========== */
+        .welcome-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3.5rem;
+            margin: 3rem auto;
+            max-width: 900px;
+            box-shadow: var(--box-shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
+            opacity: 0.5;
+        }
+
+        .welcome-card>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        .welcome-card h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            font-size: 2.2rem;
+        }
+
+        .welcome-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .quick-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .quick-action-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            font-size: 1.1rem;
+        }
+
+        .quick-action-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .quick-action-btn:hover::before {
+            left: 100%;
+        }
+
+        .quick-action-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.4);
+            color: white;
+        }
+
+        /* ========== ENHANCED FOOTER ========== */
+        footer {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.95), rgba(17, 24, 39, 0.95));
+            backdrop-filter: blur(20px);
+            color: white;
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            gap: 1rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius-sm);
+            position: relative;
+        }
+
+        .footer-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+
+        .footer-links a:hover::before {
+            width: 100%;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.8rem;
+            padding: 1rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+        }
+
+        .social-icons a:hover {
+            color: white;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            transform: translateY(-5px) rotate(360deg);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        /* ========== ENHANCED ANIMATIONS ========== */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-slide-up {
+            animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .animate-fade-scale {
+            animation: fadeInScale 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        /* Stagger animation delays */
+        .feature-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .feature-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .feature-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .feature-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .feature-card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .feature-card:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        /* ========== NOTIFICATION ENHANCEMENT ========== */
+        .notification-container {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1100;
+            width: 100%;
+            max-width: 550px;
+            animation: slideInDown 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-100px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        .alert-notification {
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 1.2rem 1.8rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-left: 4px solid var(--primary-color);
+            box-shadow: var(--box-shadow);
+            display: flex;
+            align-items: center;
+        }
+
+        .notification-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        .notification-content {
+            flex: 1;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* ========== RESPONSIVE DESIGN ========== */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 3rem 0 4rem;
+            }
+
+            .features-section {
+                padding: 4rem 0;
+            }
+
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .navbar-brand i {
+                font-size: 1.5rem;
+            }
+
+            .quick-actions {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .quick-action-btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            .welcome-card {
+                padding: 2.5rem 1.5rem;
+                margin: 2rem 1rem;
+            }
+
+            .feature-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .btn-hero {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .welcome-card h2 {
+                font-size: 1.8rem;
+            }
+
+            .welcome-card p {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* ========== SCROLL BEHAVIOR ========== */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--darker-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, var(--primary-dark), var(--secondary-color));
+        }
+
+        /* ========== LOADING STATES ========== */
+        .loading {
+            opacity: 0;
+            animation: fadeInScale 0.6s ease forwards;
+        }
+
+        /* Intersection Observer classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Enhanced Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-leaf"></i>Nutritions
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbar">
+                {% if session.user_id %}
+                <!-- Logged In User Navigation -->
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link add-food" href="/add">
+                            <i class="fas fa-plus-circle"></i>Add Food
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link delete-food" href="/delete">
+                            <i class="fas fa-trash-alt"></i>Delete Food
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link food-diary" href="/food_diary">
+                            <i class="fas fa-book-open"></i>Food Diary
+                        </a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="/features">
+                            <i class="fas fa-star"></i>Features
+                        </a>
+                    </li> -->
+                    <!-- <li class="nav-item">
+                            <a class="nav-link" href="/how-it-works">
+                                <i class="fas fa-question-circle"></i>How It Works
+                            </a>
+                        </li> -->
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <!-- <li class="nav-item">
+                        <span class="nav-link">
+                            <i class="fas fa-user-circle"></i> Welcome Back!
+                        </span> -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn-auth btn-primary" href="/logout">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Log Out</span>
+                        </a>
+                    </li>
+                </ul>
+                {% else %}
+                <!-- Public Navigation -->
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/features">
+                            <i class="fas fa-star"></i>Features
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/how-it-works">
+                            <i class="fas fa-question-circle"></i>How It Works
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="btn-auth" href="/register">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Register</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn-auth btn-primary" href="/login">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>Log In</span>
+                        </a>
+                    </li>
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <!-- Enhanced Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title loading">Track Your Nutrition Journey</h1>
+            <p class="hero-subtitle loading">Discover, analyze, and optimize your daily nutrition with our comprehensive
+                tracking system designed for your health goals</p>
+
+            {% if session.user_id %}
+            <!-- Welcome Card for Logged In Users -->
+            <div class="welcome-card loading">
+                <h2>🎉 Welcome Back, Champion!</h2>
+                <p>Ready to continue your nutrition journey? Your personalized dashboard awaits with insights and tools
+                    to help you achieve your health goals.</p>
+                <div class="quick-actions">
+                    <a href="/add" class="quick-action-btn">
+                        <i class="fas fa-plus-circle"></i> Add Food
+                    </a>
+                    <a href="/food_diary" class="quick-action-btn">
+                        <i class="fas fa-book-open"></i> View Diary
+                    </a>
+                    <a href="/delete" class="quick-action-btn">
+                        <i class="fas fa-chart-line"></i> Manage Foods
+                    </a>
+                </div>
+            </div>
+            {% else %}
+            <!-- Demo Button for Public Users -->
+            <a class="btn btn-hero loading" id="demoBtn">
+                Start Your Journey<i class="fas fa-rocket"></i>
+            </a>
+            {% endif %}
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Enhanced Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Why Choose Nutritions?</h2>
+            <div class="row g-4">
+                <!-- Feature 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card fade-in h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h4>Goal Tracking</h4>
+                        <p>Set personalized nutrition goals and track your progress with visual indicators and milestone
+                            achievements.
+
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card fade-in h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h4>Detailed Analytics</h4>
+                        <p>Get comprehensive nutritional breakdowns with interactive charts and insights to understand
+                            your eating patterns better.</p>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card fade-in h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>Mobile Optimized</h4>
+                        <p>Access your nutrition data anywhere with our responsive design that works seamlessly across
+                            all devices.</p>
+                    </div>
+                </div>
+
+
+
+                <!-- Feature 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card fade-in h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Health Insights</h4>
+                        <p>Receive personalized recommendations and health insights based on your nutrition data and
+                            goals.</p>
+                    </div>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card fade-in h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h4>History Tracking</h4>
+                        <p>View your complete nutrition history with trends analysis to identify patterns and make
+                            informed decisions.</p>
+                    </div>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card fade-in h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h4>History Tracking</h4>
+                        <p>View your complete nutrition history with trends analysis to identify patterns and make
+                            informed decisions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flash Message -->
+    {% if get_flashed_messages() %}
+    <div class="notification-container">
+        <div class="alert alert-notification alert-dismissible fade show" role="alert" id="autoCloseAlert">
+            <i class="fas fa-check-circle notification-icon"></i>
+            <div class="notification-content">
+                {{ get_flashed_messages() | join(" ") }}
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+    {% endif %}
+
+
+
+
+    <!-- Main Content Blocks -->
+    <main class="container" style="display: none;" id="discover_food">
+        {% block main %}{% endblock %}
+    </main>
+
+    <main class="container">
+        {% block mainn %}{% endblock %}
+    </main>
+
+    <main class="container">
+        {% block mainnn %}{% endblock %}
+    </main>
+
+    <main class="container">
+        {% block mainnnn %}{% endblock %}
+    </main>
+
+    <main class="container">
+        {% block mainnnnn %}{% endblock %}
+    </main>
+
+    <main class="container">
+        {% block mainm %}{% endblock %}
+    </main>
+
+    <main class="container">
+        {% block mainmm %}{% endblock %}
+    </main>
+
+    <main class="container">
+        {% block mainmmm %}{% endblock %}
+    </main>
+
+    <main class="container">
+        {% block mainmmmm %}{% endblock %}
+    </main>
+
+    <main class="">
+        {% block mainzz %}{% endblock %}
+    </main>
+
+    <main class="">
+        {% block content %}{% endblock %}
+    </main>
+
+    {% if request.path == '/add' %}
+
+    <body data-page="add">
+        {% elif request.path == '/food_diary' %}
+
+        <body data-page="diary">
+            {% elif request.path == '/delete' %}
+
+            <body data-page="delete">
+                {% else %}
+
+                <body>
+                    {% endif %}
+
+                    <!-- Enhanced Footer -->
+                    <footer>
+                        <div class="container text-center">
+                            <div class="footer-links">
+                                <a href="/features">Features</a>
+                                <a href="/how-it-works">How It Works</a>
+                                <a href="/search">Search Food</a>
+                                {% if session.user_id %}
+                                <a href="/add">Add Food</a>
+                                <a href="/food_diary">Food Diary</a>
+                                {% else %}
+                                <a href="/register">Register</a>
+                                <a href="/login">Login</a>
+                                {% endif %}
+                            </div>
+                            <div class="social-icons">
+                                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                            <p class="mb-0">&copy; 2025 Nutritions. Crafted with ❤️ for your health journey.</p>
+                        </div>
+                    </footer>
+
+                    <!-- Bootstrap JS -->
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+                    <!-- Enhanced JavaScript -->
+                    <script>
+                        // Enhanced Auto-close notification
+                        setTimeout(function () {
+                            var alert = document.getElementById('autoCloseAlert');
+                            if (alert) {
+                                var bsAlert = new bootstrap.Alert(alert);
+                                bsAlert.close();
+                            }
+                        }, 5000);
+
+                        // Enhanced Navbar scroll effects
+                        document.addEventListener('DOMContentLoaded', function () {
+                            const navbar = document.querySelector('.navbar');
+                            if (!navbar) return;
+
+                            const currentPath = window.location.pathname;
+
+                            // Page-specific navbar styling
+                            if (currentPath.includes('/delete')) {
+                                navbar.classList.add('delete-page');
+                            } else if (currentPath.includes('/add') || currentPath.includes('/food_diary')) {
+                                navbar.classList.add('main-page');
+                            }
+
+                            // Scroll effect
+                            let lastScrollTop = 0;
+                            window.addEventListener('scroll', function () {
+                                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                                if (scrollTop > 50) {
+                                    navbar.classList.add('scrolled');
+                                } else {
+                                    navbar.classList.remove('scrolled');
+                                }
+
+                                // Hide/show navbar on scroll
+                                if (scrollTop > lastScrollTop && scrollTop > 200) {
+                                    navbar.style.transform = 'translateY(-100%)';
+                                } else {
+                                    navbar.style.transform = 'translateY(0)';
+                                }
+                                lastScrollTop = scrollTop;
+                            });
+                        });
+
+                        // Demo button functionality
+                        document.addEventListener("DOMContentLoaded", function () {
+                            const demoBtn = document.getElementById("demoBtn");
+                            const discoverFood = document.getElementById("discover_food");
+
+                            if (demoBtn && discoverFood) {
+                                demoBtn.addEventListener("click", function (event) {
+                                    event.preventDefault();
+                                    discoverFood.style.display = "block";
+                                    discoverFood.scrollIntoView({ behavior: "smooth" });
+                                });
+                            }
+                        });
+
+                        // Intersection Observer for animations
+                        const observerOptions = {
+                            threshold: 0.1,
+                            rootMargin: '0px 0px -50px 0px'
+                        };
+
+                        const observer = new IntersectionObserver(function (entries) {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    entry.target.classList.add('visible');
+                                }
+                            });
+                        }, observerOptions);
+
+                        // Observe all fade-in elements
+                        document.addEventListener('DOMContentLoaded', function () {
+                            const fadeElements = document.querySelectorAll('.fade-in');
+                            fadeElements.forEach(el => observer.observe(el));
+
+                            // Add loading animation to initial elements
+                            const loadingElements = document.querySelectorAll('.loading');
+                            loadingElements.forEach((el, index) => {
+                                setTimeout(() => {
+                                    el.style.opacity = '1';
+                                    el.style.transform = 'translateY(0)';
+                                }, index * 200);
+                            });
+                        });
+
+                        // Enhanced smooth scrolling
+                        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                            anchor.addEventListener('click', function (e) {
+                                e.preventDefault();
+                                const target = document.querySelector(this.getAttribute('href'));
+                                if (target) {
+                                    target.scrollIntoView({
+                                        behavior: 'smooth',
+                                        block: 'start'
+                                    });
+                                }
+                            });
+                        });
+
+                        // Add ripple effect to buttons
+                        function createRipple(event) {
+                            const button = event.currentTarget;
+                            const circle = document.createElement("span");
+                            const diameter = Math.max(button.clientWidth, button.clientHeight);
+                            const radius = diameter / 2;
+
+                            circle.style.width = circle.style.height = `${diameter}px`;
+                            circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+                            circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+                            circle.classList.add("ripple");
+
+                            const ripple = button.getElementsByClassName("ripple")[0];
+                            if (ripple) {
+                                ripple.remove();
+                            }
+
+                            button.appendChild(circle);
+                        }
+
+                        // Apply ripple effect to buttons
+                        document.addEventListener('DOMContentLoaded', function () {
+                            const buttons = document.querySelectorAll('.btn-hero, .quick-action-btn');
+                            buttons.forEach(button => {
+                                button.addEventListener('click', createRipple);
+                            });
+                        });
+
+                        // Add CSS for ripple effect
+                        const style = document.createElement('style');
+                        style.textContent = `
+            .ripple {
+                position: absolute;
+                border-radius: 50%;
+                transform: scale(0);
+                animation: ripple 600ms linear;
+                background-color: rgba(255, 255, 255, 0.3);
+                pointer-events: none;
+            }
+
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+                        document.head.appendChild(style);
+
+                        // Performance optimization
+                        if ('requestIdleCallback' in window) {
+                            requestIdleCallback(() => {
+                                // Non-critical JavaScript can be placed here
+                                console.log('Enhanced Nutritions UI loaded successfully! 🚀');
+                            });
+                        }
+                    </script>
+                </body>
+
+</html>

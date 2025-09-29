@@ -1,0 +1,162 @@
+{% extends "layout.html" %}
+
+
+
+{% block mainm %}
+
+ <style>
+    /* Main Container Styles */
+    .section-bg {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px);
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        /* border: 1px solid rgba(255, 255, 255, 0.3); */
+        animation: fadeInUp 0.7s ease-out;
+    }
+
+    /* Header Styles */
+    .add-header {
+        background: linear-gradient(135deg, #28a745, #218838);
+        color: white;
+        padding: 1.5rem;
+        text-align: center;
+        border-radius: 16px 16px 0 0;
+        margin-bottom: 2rem;
+    }
+
+    /* Form Styles */
+    .form-control-custom {
+        border: 2px solid #e9ecef;
+        border-radius: 10px;
+        padding: 12px 20px;
+        transition: all 0.3s;
+    }
+
+    .form-control-custom:focus {
+        border-color: #28a745;
+        box-shadow: 0 0 0 4px rgba(40, 167, 69, 0.2);
+    }
+
+    /* Button Styles */
+    .btn-custom {
+        background: linear-gradient(135deg, #28a745, #218838);
+        border: none;
+        border-radius: 10px;
+        padding: 12px 24px;
+        font-weight: 600;
+        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        transition: all 0.3s;
+    }
+
+    .btn-custom:hover {
+        background: linear-gradient(135deg, #218838, #1e7e34);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+    }
+
+    /* Animation */
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+.tip-box {
+    background: #fffbea;
+    border-left: 4px solid #facc15;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    width: 370px; /* Make it fluid */
+}
+
+
+</style>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="section-bg">
+                <div class="add-header">
+                    <h2 class="mb-0">
+                        <i class="bi bi-journal-plus"></i> Add to Food Diary
+                    </h2>
+                </div>
+                
+                <div class="p-4 p-md-5">
+                    <form action="/search_diary" method="post">
+                        <div class="mb-4">
+                            <label class="form-label mb-2 fw-semibold text-dark">
+                            <i class="fa-solid fa-user-plus"></i>
+
+
+                                Search for food to <span class="text-success">track</span>:
+                            </label>
+                            <input 
+                                class="form-control form-control-custom py-3" 
+                                autocomplete="off" 
+                                autofocus 
+                                name="query" 
+                                placeholder="e.g. Banana, Salmon, Pasta..." 
+                                type="text"
+                                required
+                            >
+                            <div class="form-text mt-2 text-muted">
+                                We'll find all variations (e.g. "milk" → whole, almond, soy)
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-custom btn-lg text-white py-3">
+                                <i class="bi bi-search me-2"></i> Search Food Database
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="tip-box p-3 mt-3">
+    <small class="text-muted">
+        <i class="bi bi-lightbulb-fill" style="color: #facc15;"></i>
+        <strong>Tip:</strong> Try generic terms first like "bread", "juice", "rice"
+    </small>
+</div>             
+</div>
+    </div>
+
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Change navbar color to green for add food page
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            navbar.style.background = 'linear-gradient(135deg, #28a745, #218838)';
+        }
+        
+        // Hide other sections if needed
+        const sectionsToHide = ['.hero-section', '.features-section'];
+        sectionsToHide.forEach(selector => {
+            const el = document.querySelector(selector);
+            if(el) el.style.display = 'none';
+        });
+    });
+
+// color
+
+  document.addEventListener('DOMContentLoaded', function() {
+        const navbar = document.querySelector('.navbar');
+        if(navbar) {
+            navbar.style.background = 'linear-gradient(135deg, #26a65c, #0c1e14) !important';
+        }
+    });
+
+</script>
+{% endblock %}

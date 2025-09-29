@@ -1,0 +1,222 @@
+{% extends "layout.html" %}
+
+{% block mainmmmm %}
+<style>
+    .nutrition-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 2.5rem;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+        animation: fadeInUp 0.6s ease;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .nutrition-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    select.form-select {
+        padding: 12px 16px;
+        border-radius: 12px;
+        border: 2px solid #e9ecef;
+        width: 100%;
+        margin-top: 8px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background-color: #f8f9fa;
+    }
+
+    .form-control {
+        padding: 12px 16px;
+        border-radius: 12px;
+        border: 2px solid #e9ecef;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background-color: #f8f9fa;
+    }
+
+    .form-control:focus,
+    select.form-select:focus {
+        border-color: #198754;
+        box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.15);
+        outline: none;
+        background-color: #fff;
+    }
+
+    .btn-success {
+        padding: 14px 28px;
+        border-radius: 14px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        text-transform: uppercase;
+    }
+    
+    .btn-success:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(25, 135, 84, 0.3);
+    }
+    
+    .form-label {
+        font-size: 1.05rem;
+        color: #495057;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+    }
+    
+    .bi {
+        font-size: 1.2rem;
+        margin-right: 10px;
+        color: #198754;
+    }
+    
+    h4 {
+        font-size: 1.5rem;
+        border-bottom: 2px solid #e9ecef;
+        padding-bottom: 12px;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .text-dark {
+        color: #212529 !important;
+        font-weight: 600;
+    }
+    
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+ */
+    /* Loading animation for form submission */
+    .btn-loading {
+        position: relative;
+        pointer-events: none;
+    }
+    
+    .btn-loading:after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        border: 3px solid transparent;
+        border-top-color: #ffffff;
+        border-radius: 50%;
+        animation: button-loading-spinner 1s ease infinite;
+    }
+    
+    @keyframes button-loading-spinner {
+        from { transform: rotate(0turn); }
+        to { transform: rotate(1turn); }
+    }
+</style>
+
+<div class="container py-5" style="width: 69%;">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="nutrition-card">
+                <h4 class="mb-4 fw-semibold text-success">
+                    <i class="bi bi-search-heart"></i> Results for: <span class="text-dark">{{ product }}</span>
+                </h4>
+
+                <form action="/diary_nutritions" method="post" id="nutritionForm">
+                    <div class="form-group mb-4">
+                        <label for="foodSelect" class="form-label fw-semibold">
+                            <i class="bi bi-list-check"></i>Select a product from the list:
+                        </label>
+                        <select class="form-select" name="check" id="foodSelect" required autofocus>
+                            <option value="" disabled selected>Select food product</option>
+                            {% for fo in food_arr %}
+                                <option value="{{ fo }}">{{ fo }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label for="quantityInput" class="form-label fw-semibold">
+                            <i class="bi bi-cup-straw"></i>Enter quantity (in grams):
+                        </label>
+                        <div class="input-group">
+                            <input type="number" name="quantity" id="quantityInput" min="1" max="1000" 
+                                   class="form-control" placeholder="e.g. 150" required>
+                            <span class="input-group-text bg-transparent">grams</span>
+                        </div>
+                        <small class="text-muted mt-1 d-block">Enter a value between 1 and 1000 grams</small>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-success" id="submitBtn">
+                            <i class="fa-solid fa-plus"></i> Add food to diary
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Add form submission loading indicator
+    document.getElementById('nutritionForm').addEventListener('submit', function() {
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.classList.add('btn-loading');
+        submitBtn.innerHTML = '<span style="opacity: 0;">Processing...</span>';
+        submitBtn.disabled = true;
+    });
+    
+    // Add input validation
+    document.getElementById('quantityInput').addEventListener('input', function(e) {
+        const value = parseInt(e.target.value);
+        if (value < 1) e.target.value = 1;
+        if (value > 1000) e.target.value = 1000;
+    });
+    
+    // Add animation to select dropdown options
+    document.getElementById('foodSelect').addEventListener('focus', function() {
+        this.style.backgroundColor = '#fff';
+    });
+    
+    document.getElementById('foodSelect').addEventListener('blur', function() {
+        this.style.backgroundColor = '#f8f9fa';
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Change navbar color to green for add food page
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            navbar.style.background = 'linear-gradient(135deg, #28a745, #218838)';
+        }
+        
+        // Hide other sections if needed
+        const sectionsToHide = ['.hero-section', '.features-section'];
+        sectionsToHide.forEach(selector => {
+            const el = document.querySelector(selector);
+            if(el) el.style.display = 'none';
+        });
+    });
+
+// color
+
+  document.addEventListener('DOMContentLoaded', function() {
+        const navbar = document.querySelector('.navbar');
+        if(navbar) {
+            navbar.style.background = 'linear-gradient(135deg, #26a65c, #0c1e14) !important';
+        }
+    });
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,430 @@
+{% extends "layout.html" %}
+
+{% block title %}Nutrition Dashboard{% endblock %}
+
+{% block mainmmm%}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<style>
+    :root {
+        --primary-blue: #4e9af1;
+        --success-green: #28a745;
+        --warning-orange: #fd7e14;
+        --info-blue: #17a2b8;
+        --danger-red: #dc3545;
+    }
+
+    body {
+        background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+        font-family: 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .dashboard-container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    /* Enhanced Card Styles */
+    .nutrition-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        margin-bottom: 2rem;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+    .nutrition-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-header {
+        padding: 1.25rem 1.5rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    /* Table Styles */
+    .nutrition-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+    .nutrition-table thead th {
+        position: sticky;
+        top: 0;
+        background-color: #f8f9fa;
+        padding: 1rem;
+        font-weight: 600;
+        border-bottom: 2px solid #dee2e6;
+    }
+
+    .nutrition-table tbody td {
+        padding: 0.75rem 1rem;
+        vertical-align: middle;
+    }
+
+    .nutrition-table tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+
+    /* Nutrient-specific colors */
+    .water {
+        color: var(--info-blue);
+    }
+
+    .energy {
+        color: var(--warning-orange);
+    }
+
+    .protein {
+        color: var(--primary-blue);
+    }
+
+    .fat {
+        color: var(--danger-red);
+    }
+
+    .carbs {
+        color: var(--secondary);
+    }
+
+    .fiber {
+        color: var(--success-green);
+    }
+
+    .sugar {
+        color: #e83e8c;
+    }
+
+    /* Badge styles */
+    .nutrient-badge {
+        font-size: 0.85rem;
+        padding: 0.35em 0.65em;
+        border-radius: 50px;
+    }
+
+    /* Section headers */
+    .section-title {
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        color: #2c3e50;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .dashboard-container {
+            padding: 0 0.5rem;
+        }
+
+        .nutrition-table thead {
+            display: none;
+        }
+
+        .nutrition-table tbody td {
+            display: block;
+            text-align: right;
+            padding-left: 50%;
+            position: relative;
+        }
+
+        .nutrition-table tbody td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 1rem;
+            width: calc(50% - 1rem);
+            padding-right: 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+        }
+    }
+</style>
+
+<div class="dashboard-container">
+    <!-- Food Items Consumed -->
+    <div class="nutrition-card">
+        <div class="card-header bg-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0">
+                <i class="bi bi-basket-fill text-primary me-2"></i>Food Items Consumed
+                <span class="badge bg-primary bg-opacity-10 ms-2 text-white">{{ food|length }} items</span>
+            </h4>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table nutrition-table">
+                <thead>
+                    <tr>
+                        <th style="width: 60%; font-weight: bolder; font-size: larger;">Product</th>
+                        <th style="width: 40%;font-weight: bolder; font-size: larger;">Quantity (grams)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in food %}
+                    <tr>
+                        <td data-label="Product">
+                            <span class="d-inline-block text-truncate" style="max-width: 300px;">
+                                {{ row["product"] }}
+                            </span>
+                        </td>
+                        <td data-label="Quantity" class="font-weight-bold">{{ row.totalFood }}g</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                {% if food|length > 0 %}
+                <tfoot>
+                    <tr class="bg-light">
+                        <td class="font-weight-bold">Total Consumed</td>
+                        <td class="font-weight-bold text-primary">
+                            {{ food|sum(attribute='totalFood') }}g
+                        </td>
+                    </tr>
+                </tfoot>
+                {% endif %}
+            </table>
+        </div>
+
+
+    </div>
+
+    <!-- Food Product Analysis Header -->
+    <div class="nutrition-card mb-4">
+        <div class="card-header bg-success text-white">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-utensils fa-2x mr-3"></i>
+                <div class="font-weight-bold">
+                    <h4 class="mb-1">Food Product Analysis</h4>
+                    <p class="mb-0">Detailed nutritional information for:
+                        <span class="font-weight-bold">{{ product_single }}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Macronutrients -->
+    <div class="nutrition-card">
+        <div class="card-header bg-white">
+            <h5 class="mb-0">
+                <i class="fas fa-chart-pie text-success me-2"></i>Macronutrient Breakdown
+            </h5>
+        </div>
+        <div class="table-responsive">
+            <table class="table nutrition-table">
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-tint water me-1"></i> Water (g)</th>
+                        <th><i class="fas fa-bolt energy me-1"></i> Energy (kcal)</th>
+                        <th><i class="fas fa-dumbbell protein me-1"></i> Protein (g)</th>
+                        <th><i class="fas fa-bacon fat me-1"></i> Fat (g)</th>
+                        <th><i class="fas fa-bread-slice carbs me-1"></i> Carbs (g)</th>
+                        <th><i class="fas fa-seedling fiber me-1"></i> Fiber (g)</th>
+                        <th><i class="fas fa-candy-cane sugar me-1"></i> Sugar (g)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if food_plc %}
+                    {% for row in food_plc %}
+                    <tr>
+                        <td data-label="Water">{{ row["Water_g"] }}</td>
+                        <td data-label="Energy"><span class="badge energy nutrient-badge">{{ row.Energ_Kcal }}</span>
+                        </td>
+                        <td data-label="Protein">{{ row.Protein_g }}</td>
+                        <td data-label="Fat">{{ row.Lipid_Tot_g}}</td>
+                        <td data-label="Carbs">{{ row.Carbohydrt_g }}</td>
+                        <td data-label="Fiber">{{ row.Fiber_TD_g}}</td>
+                        <td data-label="Sugar">{{ row.Sugar_Tot_g }}</td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <tr>
+                        {% for key, val in newdb.items() %}
+                        <td data-label="{{ key }}">{{ val }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Minerals -->
+    <div class="nutrition-card">
+        <div class="card-header bg-white">
+            <h5 class="mb-0">
+                <i class="bi bi-droplet-half text-primary me-2"></i>Minerals
+            </h5>
+        </div>
+        <div class="table-responsive">
+            <table class="table nutrition-table">
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-vial text-info me-1"></i> Ash_g (mg)</th>
+                        <th title="Calcium – Strong bones & teeth"><i class="fas fa-bone text-secondary me-1"></i>
+                            Calcium (mg)</th>
+                        <th><i class="fas fa-magnet text-danger me-1"></i> Iron (mg)</th>
+                        <th><i class="fas fa-atom text-primary me-1"></i> Magnesium (mg)</th>
+                        <th><i class="fas fa-fire text-warning me-1"></i> Phosphorus (mg)</th>
+                        <th><i class="fas fa-battery-three-quarters text-success me-1"></i> Potassium (mg)</th>
+                        <th><i class="fas fa-bolt text-warning me-1"></i> Sodium (mg)</th>
+                        <th> <i class="fas fa-shield-alt text-info me-1"></i> Zinc (mg)</th>
+                        <th> <i class="fas fa-coins text-warning me-1"></i> Copper (mg)</th>
+                        <th><i class="fas fa-star text-warning me-1"></i> Manganese (mg)</th>
+                        <th><i class="fas fa-shield-virus text-success me-1"></i> Selenium (µg)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if food_min %}
+                    {% for row in food_min %}
+                    <tr>
+                        <td data-label="Calcium">{{ row.Calcium_mg }}</td>
+                        <td data-label="Iron"><span class="badge badge-danger">{{ row.Iron_mg }}</span></td>
+                        <td data-label="Magnesium">{{ row.Magnesium_mg}}</td>
+                        <td data-label="Phosphorus">{{ row.Phosphorus_mg }}</td>
+                        <td data-label="Potassium">{{ row.Potassium_mg}}</td>
+                        <td data-label="Sodium">{{ row.Sodium_mg }}</td>
+                        <td data-label="Zinc">{{ row.Zinc_mg}}</td>
+                        <td data-label="Copper">{{ row.Copper_mg }}</td>
+                        <td data-label="Manganese">{{ row.Manganese_mg }}</td>
+                        <td data-label="Selenium">{{ row.Selenium_µg }}</td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <tr>
+                        {% for val in newdb_min.values() %}
+                        <td>{{ val }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Vitamins -->
+    <div class="nutrition-card">
+        <div class="card-header bg-white">
+            <h5 class="mb-0">
+                <i class="fas fa-capsules text-warning me-2"></i>Vitamins
+            </h5>
+        </div>
+
+        <div class="card-body">
+            <h6 class="text-warning mb-3">
+                🧪 Water-Soluble Vitamins
+            </h6>
+            <div class="table-responsive mb-4">
+                <table class="table nutrition-table">
+                    <thead>
+                        <tr>
+                            {% for key in newdb_vit1.keys() %}
+                            <th>{{ key }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {% for val in newdb_vit1.values() %}
+                            <td data-label="{{ loop.key }}">{{ val }}</td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h6 class="text-warning mb-3">
+                💊Fat-Soluble Vitamins
+            </h6>
+            <div class="table-responsive mb-4">
+                <table class="table nutrition-table">
+                    <thead>
+                        <tr>
+                            {% for key in newdb_vit2.keys() %}
+                            <th>{{ key }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {% for val in newdb_vit2.values() %}
+                            <td data-label="{{ loop.key }}">{{ val }}</td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h6 class="text-warning mb-3">
+                🔥 Fatty Acids & Others
+            </h6>
+            <div class="table-responsive">
+                <table class="table nutrition-table">
+                    <thead>
+                        <tr>
+                            {% for key in newdb_vit3.keys() %}
+                            <th>{{ key }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {% for val in newdb_vit3.values() %}
+                            <td data-label="{{ loop.key }}">{{ val }}</td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Make tables responsive on small screens
+        function makeTablesResponsive() {
+            const tables = document.querySelectorAll('.nutrition-table');
+
+            tables.forEach(table => {
+                const headers = table.querySelectorAll('thead th');
+                const rows = table.querySelectorAll('tbody tr');
+
+                rows.forEach(row => {
+                    const cells = row.querySelectorAll('td');
+                    cells.forEach((cell, i) => {
+                        if (headers[i]) {
+                            cell.setAttribute('data-label', headers[i].textContent.trim());
+                        }
+                    });
+                });
+            });
+        }
+
+        // Initialize
+        makeTablesResponsive();
+
+        // Re-run on window resize
+        window.addEventListener('resize', makeTablesResponsive);
+
+        // Hide sections if they exist
+        ['hero-section', 'features-section'].forEach(id => {
+            const el = document.querySelector(`.${id}`);
+            if (el) el.style.display = 'none';
+        });
+
+        // Update navbar
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            navbar.style.background = 'linear-gradient(135deg, #26a65c, #0c1e14)';
+        }
+    });
+</script>
+{% endblock %}

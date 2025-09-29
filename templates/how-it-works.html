@@ -1,0 +1,2274 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="liquid-hero">
+    <div class="liquid-bg">
+        <div class="liquid-blob blob-1"></div>
+        <div class="liquid-blob blob-2"></div>
+        <div class="liquid-blob blob-3"></div>
+        <div class="liquid-blob blob-4"></div>
+    </div>
+    <div class="container text-center">
+        <div class="hero-content">
+            <h1 class="liquid-title">
+                <i class="fas fa-apple-alt liquid-icon"></i>
+                How It Works
+            </h1>
+            <p class="liquid-subtitle">Track your nutrition in 4 simple steps</p>
+            <p class="liquid-description">From food search to detailed analysis - master your nutrition journey with our intuitive platform</p>
+            
+            <div class="liquid-process-flow">
+                <div class="liquid-step active" data-step="1">
+                    <div class="liquid-step-indicator">
+                        <span>1</span>
+                        <div class="liquid-ripple"></div>
+                    </div>
+                    <span class="liquid-step-label">Search</span>
+                </div>
+                <div class="liquid-connector">
+                    <div class="liquid-flow"></div>
+                </div>
+                <div class="liquid-step" data-step="2">
+                    <div class="liquid-step-indicator">
+                        <span>2</span>
+                        <div class="liquid-ripple"></div>
+                    </div>
+                    <span class="liquid-step-label">Add</span>
+                </div>
+                <div class="liquid-connector">
+                    <div class="liquid-flow"></div>
+                </div>
+                <div class="liquid-step" data-step="3">
+                    <div class="liquid-step-indicator">
+                        <span>3</span>
+                        <div class="liquid-ripple"></div>
+                    </div>
+                    <span class="liquid-step-label">Analyze</span>
+                </div>
+                <div class="liquid-connector">
+                    <div class="liquid-flow"></div>
+                </div>
+                <div class="liquid-step" data-step="4">
+                    <div class="liquid-step-indicator">
+                        <span>4</span>
+                        <div class="liquid-ripple"></div>
+                    </div>
+                    <span class="liquid-step-label">Track</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="liquid-wave">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgba(255,255,255,0.1);stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:rgba(255,255,255,0.3);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgba(255,255,255,0.1);stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="url(#waveGradient)"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="url(#waveGradient)"></path>
+            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="rgba(255,255,255,0.1)"></path>
+        </svg>
+    </div>
+</section>
+
+<section class="liquid-steps-section">
+    <div class="container">
+        <!-- Step 1 -->
+        <div class="liquid-step-container" data-step="1">
+            <div class="liquid-step-content" data-aos="fade-right">
+                <div class="liquid-glass-panel">
+                    <div class="liquid-step-header">
+                        <div class="liquid-step-number">
+                            <span>1</span>
+                            <div class="liquid-glow"></div>
+                        </div>
+                        <div class="liquid-step-title">
+                            <h3>Search for Food</h3>
+                            <p>Discover nutritional information for any food in our comprehensive database</p>
+                        </div>
+                    </div>
+                    
+                    <div class="liquid-step-details">
+                        <div class="liquid-detail-item">
+                            <div class="liquid-detail-icon">
+                                <i class="fas fa-database"></i>
+                                <div class="liquid-icon-glow"></div>
+                            </div>
+                            <div class="liquid-detail-content">
+                                <h4>8,000+ Food Items</h4>
+                                <p>Access our extensive USDA database with detailed nutritional information</p>
+                            </div>
+                        </div>
+                        
+                        <div class="liquid-detail-item">
+                            <div class="liquid-detail-icon">
+                                <i class="fas fa-search-plus"></i>
+                                <div class="liquid-icon-glow"></div>
+                            </div>
+                            <div class="liquid-detail-content">
+                                <h4>Smart Search</h4>
+                                <p>Find foods quickly with our intelligent search that understands variations</p>
+                            </div>
+                        </div>
+                        
+                        <div class="liquid-detail-item">
+                            <div class="liquid-detail-icon">
+                                <i class="fas fa-info-circle"></i>
+                                <div class="liquid-icon-glow"></div>
+                            </div>
+                            <div class="liquid-detail-content">
+                                <h4>Detailed Information</h4>
+                                <p>Get comprehensive nutritional breakdown for every food item</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="liquid-step-actions">
+                        <a href="{{ url_for('search') }}" class="liquid-action-btn">
+                            <span class="btn-content">
+                                <i class="fas fa-search"></i>
+                                Try Search Now
+                            </span>
+                            <div class="liquid-btn-bg"></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="liquid-step-visual" data-aos="fade-left">
+                <div class="liquid-visual-container">
+                    <div class="liquid-interface">
+                        <div class="liquid-interface-header">
+                            <div class="liquid-window-controls">
+                                <span class="control-btn close"></span>
+                                <span class="control-btn minimize"></span>
+                                <span class="control-btn maximize"></span>
+                            </div>
+                            <div class="liquid-interface-title">Search Foods</div>
+                        </div>
+                        <div class="liquid-search-area">
+                            <div class="liquid-search-input">
+                                <i class="fas fa-search"></i>
+                                <input type="text" placeholder="Search 8,000+ foods..." readonly>
+                                <div class="liquid-input-glow"></div>
+                            </div>
+                            <div class="liquid-search-results">
+                                <div class="liquid-result-item">
+                                    <div class="liquid-food-icon">🍎</div>
+                                    <div class="liquid-food-info">
+                                        <div class="liquid-food-name">Apple</div>
+                                        <div class="liquid-food-details">52 cal • 14g carbs • 0.3g fat</div>
+                                    </div>
+                                    <div class="liquid-result-glow"></div>
+                                </div>
+                                <div class="liquid-result-item">
+                                    <div class="liquid-food-icon">🍗</div>
+                                    <div class="liquid-food-info">
+                                        <div class="liquid-food-name">Chicken Breast</div>
+                                        <div class="liquid-food-details">165 cal • 31g protein • 3.6g fat</div>
+                                    </div>
+                                    <div class="liquid-result-glow"></div>
+                                </div>
+                                <div class="liquid-result-item">
+                                    <div class="liquid-food-icon">🥛</div>
+                                    <div class="liquid-food-info">
+                                        <div class="liquid-food-name">Milk</div>
+                                        <div class="liquid-food-details">42 cal • 5g carbs • 1g fat</div>
+                                    </div>
+                                    <div class="liquid-result-glow"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="liquid-step-container reverse" data-step="2">
+            <div class="liquid-step-content" data-aos="fade-left">
+                <div class="liquid-glass-panel">
+                    <div class="liquid-step-header">
+                        <div class="liquid-step-number">
+                            <span>2</span>
+                            <div class="liquid-glow"></div>
+                        </div>
+                        <div class="liquid-step-title">
+                            <h3>Add to Food Diary</h3>
+                            <p>Register and track your daily food consumption with precise quantities</p>
+                        </div>
+                    </div>
+                    
+                    <div class="liquid-step-details">
+                        <div class="liquid-detail-item">
+                            <div class="liquid-detail-icon">
+                                <i class="fas fa-user-plus"></i>
+                                <div class="liquid-icon-glow"></div>
+                            </div>
+                            <div class="liquid-detail-content">
+                                <h4>Personal Account</h4>
+                                <p>Create your profile to save and track your nutrition history</p>
+                            </div>
+                        </div>
+                        
+                        <div class="liquid-detail-item">
+                            <div class="liquid-detail-icon">
+                                <i class="fas fa-weight"></i>
+                                <div class="liquid-icon-glow"></div>
+                            </div>
+                            <div class="liquid-detail-content">
+                                <h4>Quantity Tracking</h4>
+                                <p>Log exact quantities for accurate nutritional calculations</p>
+                            </div>
+                        </div>
+                        
+                        <div class="liquid-detail-item">
+                            <div class="liquid-detail-icon">
+                                <i class="fas fa-history"></i>
+                                <div class="liquid-icon-glow"></div>
+                            </div>
+                            <div class="liquid-detail-content">
+                                <h4>Daily Logging</h4>
+                                <p>Track your food intake throughout the day with our easy-to-use interface</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="liquid-step-actions">
+                        <a href="{{ url_for('register') }}" class="liquid-action-btn">
+                            <span class="btn-content">
+                                <i class="fas fa-user-plus"></i>
+                                Create Account
+                            </span>
+                            <div class="liquid-btn-bg"></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="liquid-step-visual" data-aos="fade-right">
+                <div class="liquid-visual-container">
+                    <div class="liquid-interface">
+                        <div class="liquid-interface-header">
+                            <div class="liquid-window-controls">
+                                <span class="control-btn close"></span>
+                                <span class="control-btn minimize"></span>
+                                <span class="control-btn maximize"></span>
+                            </div>
+                            <div class="liquid-interface-title">Food Diary</div>
+                        </div>
+                        <div class="liquid-diary-content">
+                            <div class="liquid-diary-date">Today's Meals</div>
+                            <div class="liquid-meal-section">
+                                <div class="liquid-meal-title">Breakfast</div>
+                                <div class="liquid-meal-items">
+                                    <div class="liquid-diary-item">
+                                        <span class="liquid-item-name">Oatmeal</span>
+                                        <span class="liquid-item-quantity">150g</span>
+                                        <span class="liquid-item-calories">150 cal</span>
+                                        <div class="liquid-item-glow"></div>
+                                    </div>
+                                    <div class="liquid-diary-item">
+                                        <span class="liquid-item-name">Banana</span>
+                                        <span class="liquid-item-quantity">1 medium</span>
+                                        <span class="liquid-item-calories">105 cal</span>
+                                        <div class="liquid-item-glow"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="liquid-meal-section">
+                                <div class="liquid-meal-title">Lunch</div>
+                                <div class="liquid-meal-items">
+                                    <div class="liquid-diary-item">
+                                        <span class="liquid-item-name">Chicken Salad</span>
+                                        <span class="liquid-item-quantity">300g</span>
+                                        <span class="liquid-item-calories">250 cal</span>
+                                        <div class="liquid-item-glow"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="liquid-daily-total">
+                                <span>Total: 505 calories</span>
+                                <div class="liquid-total-glow"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="liquid-step-container" data-step="3">
+            <div class="liquid-step-content" data-aos="fade-right">
+                <div class="liquid-glass-panel">
+                    <div class="liquid-step-header">
+                        <div class="liquid-step-number">
+                            <span>3</span>
+                            <div class="liquid-glow"></div>
+                        </div>
+                        <div class="liquid-step-title">
+                            <h3>View Nutrition Analysis</h3>
+                            <p>Get comprehensive nutritional breakdown with beautiful visualizations</p>
+                        </div>
+                    </div>
+                    
+                    <div class="liquid-step-details">
+                        <div class="liquid-detail-item">
+                            <div class="liquid-detail-icon">
+                                <i class="fas fa-chart-pie"></i>
+                                <div class="liquid-icon-glow"></div>
+                            </div>
+                            <div class="liquid-detail-content">
+                                <h4>Macronutrient Breakdown</h4>
+                                <p>See your protein, carbs, and fat distribution in easy-to-understand charts</p>
+                            </div>
+                        </div>
+                        
+                        <div class="liquid-detail-item">
+                            <div class="liquid-detail-icon">
+                                <i class="fas fa-vitamins"></i>
+                                <div class="liquid-icon-glow"></div>
+                            </div>
+                            <div class="liquid-detail-content">
+                                <h4>Vitamin & Mineral Tracking</h4>
+                                <p>Monitor essential vitamins and minerals for optimal health</p>
+                            </div>
+                        </div>
+                        
+                        <div class="liquid-detail-item">
+                            <div class="liquid-detail-icon">
+                                <i class="fas fa-chart-bar"></i>
+                                <div class="liquid-icon-glow"></div>
+                            </div>
+                            <div class="liquid-detail-content">
+                                <h4>Progress Visualization</h4>
+                                <p>Track your nutritional trends with interactive charts and graphs</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="liquid-step-actions">
+                        <a href="{{ url_for('food_diary') }}" class="liquid-action-btn">
+                            <span class="btn-content">
+                                <i class="fas fa-chart-bar"></i>
+                                View Analysis
+                            </span>
+                            <div class="liquid-btn-bg"></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="liquid-step-visual" data-aos="fade-left">
+                <div class="liquid-visual-container">
+                    <div class="liquid-interface">
+                        <div class="liquid-interface-header">
+                            <div class="liquid-window-controls">
+                                <span class="control-btn close"></span>
+                                <span class="control-btn minimize"></span>
+                                <span class="control-btn maximize"></span>
+                            </div>
+                            <div class="liquid-interface-title">Nutrition Analysis</div>
+                        </div>
+                        <div class="liquid-analysis-content">
+                            <div class="liquid-macronutrient-chart">
+                                <div class="liquid-chart-title">Macronutrient Distribution</div>
+                                <div class="liquid-chart-bars">
+                                    <div class="liquid-macronutrient protein">
+                                        <div class="liquid-nutrient-bar" data-height="70">
+                                            <div class="liquid-bar-fill"></div>
+                                            <div class="liquid-bar-glow"></div>
+                                        </div>
+                                        <div class="liquid-nutrient-label">Protein 35%</div>
+                                    </div>
+                                    <div class="liquid-macronutrient carbs">
+                                        <div class="liquid-nutrient-bar" data-height="50">
+                                            <div class="liquid-bar-fill"></div>
+                                            <div class="liquid-bar-glow"></div>
+                                        </div>
+                                        <div class="liquid-nutrient-label">Carbs 50%</div>
+                                    </div>
+                                    <div class="liquid-macronutrient fat">
+                                        <div class="liquid-nutrient-bar" data-height="30">
+                                            <div class="liquid-bar-fill"></div>
+                                            <div class="liquid-bar-glow"></div>
+                                        </div>
+                                        <div class="liquid-nutrient-label">Fat 15%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="liquid-nutrition-facts">
+                                <div class="liquid-fact-item">
+                                    <span class="liquid-fact-label">Calories</span>
+                                    <span class="liquid-fact-value">1,850</span>
+                                    <div class="liquid-fact-glow"></div>
+                                </div>
+                                <div class="liquid-fact-item">
+                                    <span class="liquid-fact-label">Protein</span>
+                                    <span class="liquid-fact-value">125g</span>
+                                    <div class="liquid-fact-glow"></div>
+                                </div>
+                                <div class="liquid-fact-item">
+                                    <span class="liquid-fact-label">Carbs</span>
+                                    <span class="liquid-fact-value">230g</span>
+                                    <div class="liquid-fact-glow"></div>
+                                </div>
+                                <div class="liquid-fact-item">
+                                    <span class="liquid-fact-label">Fat</span>
+                                    <span class="liquid-fact-value">65g</span>
+                                    <div class="liquid-fact-glow"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="liquid-step-container reverse" data-step="4">
+            <div class="liquid-step-content" data-aos="fade-left">
+                <div class="liquid-glass-panel">
+                    <div class="liquid-step-header">
+                        <div class="liquid-step-number">
+                            <span>4</span>
+                            <div class="liquid-glow"></div>
+                        </div>
+                        <div class="liquid-step-title">
+                            <h3>Track & Manage</h3>
+                            <p>Monitor your nutrition over time and manage your food diary entries</p>
+                        </div>
+                    </div>
+                    
+                    <div class="liquid-step-details">
+                        <div class="liquid-detail-item">
+                            <div class="liquid-detail-icon">
+                                <i class="fas fa-chart-line"></i>
+                                <div class="liquid-icon-glow"></div>
+                            </div>
+                            <div class="liquid-detail-content">
+                                <h4>Progress Tracking</h4>
+                                <p>View your nutritional trends and progress towards your health goals</p>
+                            </div>
+                        </div>
+                        
+                        <div class="liquid-detail-item">
+                            <div class="liquid-detail-icon">
+                                <i class="fas fa-edit"></i>
+                                <div class="liquid-icon-glow"></div>
+                            </div>
+                            <div class="liquid-detail-content">
+                                <h4>Entry Management</h4>
+                                <p>Easily add, edit, or remove food entries from your diary</p>
+                            </div>
+                        </div>
+                        
+                        <div class="liquid-detail-item">
+                            <div class="liquid-detail-icon">
+                                <i class="fas fa-bullseye"></i>
+                                <div class="liquid-icon-glow"></div>
+                            </div>
+                            <div class="liquid-detail-content">
+                                <h4>Goal Setting</h4>
+                                <p>Set and track personalized nutrition goals for better health outcomes</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="liquid-step-actions">
+                        <a href="{{ url_for('add') }}" class="liquid-action-btn">
+                            <span class="btn-content">
+                                <i class="fas fa-plus"></i>
+                                Start Tracking
+                            </span>
+                            <div class="liquid-btn-bg"></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="liquid-step-visual" data-aos="fade-right">
+                <div class="liquid-visual-container">
+                    <div class="liquid-interface">
+                        <div class="liquid-interface-header">
+                            <div class="liquid-window-controls">
+                                <span class="control-btn close"></span>
+                                <span class="control-btn minimize"></span>
+                                <span class="control-btn maximize"></span>
+                            </div>
+                            <div class="liquid-interface-title">Progress Dashboard</div>
+                        </div>
+                        <div class="liquid-tracking-content">
+                            <div class="liquid-progress-chart">
+                                <div class="liquid-chart-grid">
+                                    <div class="liquid-grid-line"></div>
+                                    <div class="liquid-grid-line"></div>
+                                    <div class="liquid-grid-line"></div>
+                                </div>
+                                <div class="liquid-progress-line">
+                                    <div class="liquid-data-point" style="left: 10%; bottom: 30%">
+                                        <div class="liquid-point-glow"></div>
+                                    </div>
+                                    <div class="liquid-data-point" style="left: 30%; bottom: 45%">
+                                        <div class="liquid-point-glow"></div>
+                                    </div>
+                                    <div class="liquid-data-point" style="left: 50%; bottom: 60%">
+                                        <div class="liquid-point-glow"></div>
+                                    </div>
+                                    <div class="liquid-data-point" style="left: 70%; bottom: 55%">
+                                        <div class="liquid-point-glow"></div>
+                                    </div>
+                                    <div class="liquid-data-point" style="left: 90%; bottom: 70%">
+                                        <div class="liquid-point-glow"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="liquid-progress-stats">
+                                <div class="liquid-stat-card">
+                                    <div class="liquid-stat-value">85%</div>
+                                    <div class="liquid-stat-label">Goal Progress</div>
+                                    <div class="liquid-stat-glow"></div>
+                                </div>
+                                <div class="liquid-stat-card">
+                                    <div class="liquid-stat-value">7 days</div>
+                                    <div class="liquid-stat-label">Consistency</div>
+                                    <div class="liquid-stat-glow"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="liquid-nutrition-guide">
+    <div class="container">
+        <div class="liquid-section-header text-center">
+            <h2 class="liquid-section-title">Understanding Nutrition Tracking</h2>
+            <p class="liquid-section-subtitle">Learn how to make the most of your nutrition journey</p>
+        </div>
+        <div class="liquid-guide-grid">
+            <div class="liquid-guide-card" data-aos="flip-up">
+                <div class="liquid-guide-glass">
+                    <div class="liquid-guide-icon">
+                        <i class="fas fa-dumbbell"></i>
+                        <div class="liquid-guide-icon-glow"></div>
+                    </div>
+                    <h4>Macronutrients</h4>
+                    <p>Track proteins, carbohydrates, and fats - the building blocks of your diet that provide energy and support bodily functions.</p>
+                    <ul class="liquid-guide-list">
+                        <li><strong>Proteins:</strong> Muscle repair and growth</li>
+                        <li><strong>Carbs:</strong> Primary energy source</li>
+                        <li><strong>Fats:</strong> Energy storage and hormone production</li>
+                    </ul>
+                    <div class="liquid-guide-glow"></div>
+                </div>
+            </div>
+            <div class="liquid-guide-card" data-aos="flip-up" data-aos-delay="100">
+                <div class="liquid-guide-glass">
+                    <div class="liquid-guide-icon">
+                        <i class="fas fa-gem"></i>
+                        <div class="liquid-guide-icon-glow"></div>
+                    </div>
+                    <h4>Micronutrients</h4>
+                    <p>Monitor essential vitamins and minerals that support immune function, bone health, and metabolic processes.</p>
+                    <ul class="liquid-guide-list">
+                        <li><strong>Vitamins:</strong> A, C, D, E, K, B-complex</li>
+                        <li><strong>Minerals:</strong> Calcium, Iron, Magnesium, Zinc</li>
+                        <li><strong>Electrolytes:</strong> Sodium, Potassium</li>
+                    </ul>
+                    <div class="liquid-guide-glow"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="liquid-benefits-section">
+    <div class="container">
+        <div class="liquid-section-header text-center">
+            <h2 class="liquid-section-title">Benefits of Nutrition Tracking</h2>
+            <p class="liquid-section-subtitle">Discover how tracking your nutrition can transform your health</p>
+        </div>
+        <div class="liquid-benefits-grid">
+            <div class="liquid-benefit-card" data-aos="zoom-in">
+                <div class="liquid-benefit-glass">
+                    <div class="liquid-benefit-icon">
+                        <i class="fas fa-heart"></i>
+                        <div class="liquid-benefit-icon-glow"></div>
+                    </div>
+                    <h4>Health Awareness</h4>
+                    <p>Understand exactly what you're consuming and how it affects your health with detailed insights and analytics.</p>
+                    <div class="liquid-benefit-glow"></div>
+                </div>
+            </div>
+            <div class="liquid-benefit-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="liquid-benefit-glass">
+                    <div class="liquid-benefit-icon">
+                        <i class="fas fa-bullseye"></i>
+                        <div class="liquid-benefit-icon-glow"></div>
+                    </div>
+                    <h4>Goal Achievement</h4>
+                    <p>Reach your fitness and health goals with precise nutrition tracking and progress monitoring tools.</p>
+                    <div class="liquid-benefit-glow"></div>
+                </div>
+            </div>
+            <div class="liquid-benefit-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="liquid-benefit-glass">
+                    <div class="liquid-benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="liquid-benefit-icon-glow"></div>
+                    </div>
+                    <h4>Progress Tracking</h4>
+                    <p>Monitor your nutritional intake and make informed dietary decisions with beautiful visualizations and trends.</p>
+                    <div class="liquid-benefit-glow"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="liquid-cta-section">
+    <div class="liquid-cta-bg">
+        <div class="liquid-cta-blob blob-1"></div>
+        <div class="liquid-cta-blob blob-2"></div>
+    </div>
+    <div class="container text-center">
+        <div class="liquid-cta-content" data-aos="fade-up">
+            <h2 class="liquid-cta-title">Ready to Transform Your Nutrition?</h2>
+            <p class="liquid-cta-subtitle">Join thousands of users who have taken control of their health through better nutrition tracking</p>
+            <div class="liquid-cta-buttons">
+                <a href="{{ url_for('register') }}" class="liquid-cta-button primary">
+                    <span class="btn-content">
+                        <i class="fas fa-user-plus"></i> Start Your Journey
+                    </span>
+                    <div class="liquid-cta-btn-bg"></div>
+                </a>
+                <a href="{{ url_for('search') }}" class="liquid-cta-button secondary">
+                    <span class="btn-content">
+                        <i class="fas fa-search"></i> Explore Food Database
+                    </span>
+                    <div class="liquid-cta-btn-bg"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+:root {
+    --liquid-primary: #00d4ff;
+    --liquid-secondary: #7c3aed;
+    --liquid-accent: #f59e0b;
+    --liquid-glass: rgba(255, 255, 255, 0.1);
+    --liquid-glass-border: rgba(255, 255, 255, 0.2);
+    --liquid-dark: #0f0f23;
+    --liquid-light: #ffffff;
+    --liquid-glow: rgba(0, 212, 255, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d1b69 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Liquid Hero Section */
+.liquid-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.liquid-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.liquid-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.7;
+    animation: liquidFloat 20s ease-in-out infinite;
+}
+
+.blob-1 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(45deg, var(--liquid-primary), var(--liquid-secondary));
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.blob-2 {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(45deg, var(--liquid-secondary), var(--liquid-accent));
+    top: 60%;
+    right: 20%;
+    animation-delay: -7s;
+}
+
+.blob-3 {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(45deg, var(--liquid-accent), var(--liquid-primary));
+    bottom: 20%;
+    left: 60%;
+    animation-delay: -14s;
+}
+
+.blob-4 {
+    width: 180px;
+    height: 180px;
+    background: linear-gradient(45deg, var(--liquid-primary), var(--liquid-secondary));
+    top: 10%;
+    right: 10%;
+    animation-delay: -21s;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--liquid-light);
+}
+
+.liquid-title {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(45deg, var(--liquid-primary), var(--liquid-light), var(--liquid-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.liquid-icon {
+    font-size: 4.5rem;
+    color: var(--liquid-primary);
+    animation: liquidPulse 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px var(--liquid-glow));
+}
+
+.liquid-subtitle {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 300;
+    opacity: 0.9;
+    color: var(--liquid-light);
+}
+
+.liquid-description {
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.liquid-process-flow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+}
+
+.liquid-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.liquid-step-indicator {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background: var(--liquid-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--liquid-glass-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.liquid-step.active .liquid-step-indicator {
+    background: linear-gradient(45deg, var(--liquid-primary), var(--liquid-secondary));
+    color: var(--liquid-light);
+    transform: scale(1.1);
+    box-shadow: 0 0 30px var(--liquid-glow);
+}
+
+.liquid-ripple {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 50%, var(--liquid-glow));
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: liquidRipple 2s ease-out infinite;
+}
+
+.liquid-step.active .liquid-ripple {
+    animation: liquidRipple 2s ease-out infinite;
+}
+
+.liquid-step-label {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--liquid-light);
+    text-shadow: 0 0 10px var(--liquid-glow);
+}
+
+.liquid-connector {
+    position: relative;
+    width: 100px;
+    height: 4px;
+    background: var(--liquid-glass);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.liquid-flow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--liquid-primary), transparent);
+    animation: liquidFlow 3s ease-in-out infinite;
+}
+
+.liquid-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.liquid-wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 100px;
+}
+
+/* Glass Panels */
+.liquid-steps-section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.liquid-step-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-bottom: 10rem;
+}
+
+.liquid-step-container.reverse {
+    direction: rtl;
+}
+
+.liquid-step-container.reverse > * {
+    direction: ltr;
+}
+
+.liquid-glass-panel {
+    background: var(--liquid-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--liquid-glass-border);
+    border-radius: 25px;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.liquid-glass-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--liquid-primary), transparent);
+    opacity: 0.5;
+}
+
+.liquid-step-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.liquid-step-number {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(45deg, var(--liquid-primary), var(--liquid-secondary));
+    color: var(--liquid-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    overflow: hidden;
+}
+
+.liquid-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, var(--liquid-glow), transparent 70%);
+    transform: translate(-50%, -50%);
+    animation: liquidGlow 3s ease-in-out infinite;
+}
+
+.liquid-step-title h3 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--liquid-light);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 20px var(--liquid-glow);
+}
+
+.liquid-step-title p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.liquid-step-details {
+    margin-bottom: 2.5rem;
+}
+
+.liquid-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.liquid-detail-icon {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: var(--liquid-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--liquid-glass-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--liquid-primary);
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.liquid-icon-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, var(--liquid-glow), transparent 60%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.liquid-detail-item:hover .liquid-icon-glow {
+    opacity: 1;
+}
+
+.liquid-detail-content h4 {
+    color: var(--liquid-light);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.liquid-detail-content p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+.liquid-step-actions {
+    margin-top: 2.5rem;
+}
+
+.liquid-action-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 1.2rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid var(--liquid-glass-border);
+}
+
+.btn-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--liquid-light);
+}
+
+.liquid-btn-bg {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--liquid-primary), var(--liquid-secondary));
+    transition: left 0.3s ease;
+}
+
+.liquid-action-btn:hover .liquid-btn-bg {
+    left: 0;
+}
+
+.liquid-action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px var(--liquid-glow);
+}
+
+/* Visual Interfaces */
+.liquid-visual-container {
+    background: var(--liquid-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--liquid-glass-border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.liquid-interface-header {
+    background: linear-gradient(45deg, var(--liquid-dark), #1a1a3e);
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid var(--liquid-glass-border);
+}
+
+.liquid-window-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.control-btn {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid var(--liquid-glass-border);
+}
+
+.control-btn.close { background: #ff5f57; }
+.control-btn.minimize { background: #ffbd2e; }
+.control-btn.maximize { background: #28ca42; }
+
+.liquid-interface-title {
+    font-weight: 600;
+    color: var(--liquid-light);
+    font-size: 1.1rem;
+}
+
+/* Search Interface */
+.liquid-search-area {
+    padding: 2rem;
+}
+
+.liquid-search-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--liquid-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--liquid-glass-border);
+    border-radius: 15px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.liquid-search-input i {
+    color: var(--liquid-primary);
+    margin-right: 1rem;
+    font-size: 1.3rem;
+}
+
+.liquid-search-input input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 1.1rem;
+    background: transparent;
+    color: var(--liquid-light);
+}
+
+.liquid-search-input input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.liquid-input-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, var(--liquid-glow), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.liquid-search-input:hover .liquid-input-glow {
+    opacity: 0.3;
+}
+
+.liquid-search-results {
+    space-y: 0.5rem;
+}
+
+.liquid-result-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem;
+    background: var(--liquid-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--liquid-glass-border);
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.liquid-result-item:hover {
+    transform: translateX(5px);
+    border-color: var(--liquid-primary);
+}
+
+.liquid-food-icon {
+    font-size: 1.8rem;
+}
+
+.liquid-food-info {
+    flex: 1;
+}
+
+.liquid-food-name {
+    font-weight: 600;
+    color: var(--liquid-light);
+    margin-bottom: 0.3rem;
+    font-size: 1.1rem;
+}
+
+.liquid-food-details {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+}
+
+.liquid-result-glow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--liquid-glow), transparent);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.liquid-result-item:hover .liquid-result-glow {
+    left: 0;
+    opacity: 0.3;
+}
+
+/* Diary Interface */
+.liquid-diary-content {
+    padding: 2rem;
+}
+
+.liquid-diary-date {
+    font-weight: 600;
+    color: var(--liquid-light);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    text-align: center;
+    text-shadow: 0 0 10px var(--liquid-glow);
+}
+
+.liquid-meal-section {
+    margin-bottom: 2rem;
+}
+
+.liquid-meal-title {
+    font-weight: 600;
+    color: var(--liquid-primary);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    text-shadow: 0 0 10px var(--liquid-glow);
+}
+
+.liquid-meal-items {
+    background: var(--liquid-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--liquid-glass-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.liquid-diary-item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--liquid-glass-border);
+    overflow: hidden;
+}
+
+.liquid-diary-item:last-child {
+    border-bottom: none;
+}
+
+.liquid-item-name {
+    font-weight: 500;
+    color: var(--liquid-light);
+}
+
+.liquid-item-quantity {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+}
+
+.liquid-item-calories {
+    color: var(--liquid-primary);
+    font-weight: 600;
+}
+
+.liquid-item-glow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--liquid-glow), transparent);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.liquid-diary-item:hover .liquid-item-glow {
+    left: 0;
+    opacity: 0.2;
+}
+
+.liquid-daily-total {
+    position: relative;
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--liquid-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--liquid-glass-border);
+    border-radius: 12px;
+    font-weight: 600;
+    color: var(--liquid-light);
+    font-size: 1.2rem;
+    overflow: hidden;
+}
+
+.liquid-total-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--liquid-glow), transparent 50%);
+    transform: translate(-50%, -50%);
+    opacity: 0.3;
+    animation: liquidGlow 3s ease-in-out infinite;
+}
+
+/* Analysis Interface */
+.liquid-analysis-content {
+    padding: 2rem;
+}
+
+.liquid-macronutrient-chart {
+    margin-bottom: 2rem;
+}
+
+.liquid-chart-title {
+    font-weight: 600;
+    color: var(--liquid-light);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.3rem;
+    text-shadow: 0 0 10px var(--liquid-glow);
+}
+
+.liquid-chart-bars {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    height: 150px;
+    align-items: end;
+}
+
+.liquid-macronutrient {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.liquid-nutrient-bar {
+    position: relative;
+    width: 50px;
+    height: 100%;
+    background: var(--liquid-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--liquid-glass-border);
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+}
+
+.liquid-bar-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(45deg, var(--liquid-primary), var(--liquid-secondary));
+    transition: height 1s ease;
+    border-radius: 6px 6px 0 0;
+}
+
+.liquid-macronutrient.protein .liquid-bar-fill {
+    height: 70%;
+    background: linear-gradient(45deg, #10b981, #059669);
+}
+
+.liquid-macronutrient.carbs .liquid-bar-fill {
+    height: 50%;
+    background: linear-gradient(45deg, #f59e0b, #d97706);
+}
+
+.liquid-macronutrient.fat .liquid-bar-fill {
+    height: 30%;
+    background: linear-gradient(45deg, #ef4444, #dc2626);
+}
+
+.liquid-bar-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(0deg, transparent, var(--liquid-glow));
+    opacity: 0;
+    animation: liquidBarGlow 2s ease-in-out infinite;
+}
+
+.liquid-nutrient-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--liquid-light);
+    text-align: center;
+}
+
+.liquid-nutrition-facts {
+    background: var(--liquid-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--liquid-glass-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.liquid-fact-item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--liquid-glass-border);
+    overflow: hidden;
+}
+
+.liquid-fact-item:last-child {
+    border-bottom: none;
+}
+
+.liquid-fact-label {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.liquid-fact-value {
+    font-weight: 600;
+    color: var(--liquid-primary);
+}
+
+.liquid-fact-glow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--liquid-glow), transparent);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.liquid-fact-item:hover .liquid-fact-glow {
+    left: 0;
+    opacity: 0.2;
+}
+
+/* Tracking Interface */
+.liquid-tracking-content {
+    padding: 2rem;
+}
+
+.liquid-progress-chart {
+    position: relative;
+    height: 150px;
+    background: var(--liquid-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--liquid-glass-border);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.liquid-chart-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.liquid-grid-line {
+    height: 1px;
+    background: var(--liquid-glass-border);
+    opacity: 0.5;
+}
+
+.liquid-progress-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.liquid-data-point {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: var(--liquid-primary);
+    border-radius: 50%;
+    transform: translate(-50%, 50%);
+    box-shadow: 0 0 10px var(--liquid-glow);
+}
+
+.liquid-point-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, var(--liquid-glow), transparent 60%);
+    transform: translate(-50%, -50%);
+    animation: liquidPointGlow 2s ease-in-out infinite;
+}
+
+.liquid-progress-stats {
+    display: flex;
+    gap: 1rem;
+}
+
+.liquid-stat-card {
+    position: relative;
+    flex: 1;
+    background: var(--liquid-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--liquid-glass-border);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.liquid-stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--liquid-primary);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px var(--liquid-glow);
+}
+
+.liquid-stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.liquid-stat-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, var(--liquid-glow), transparent 60%);
+    transform: translate(-50%, -50%);
+    opacity: 0.3;
+    animation: liquidGlow 3s ease-in-out infinite;
+}
+
+/* Guide Section */
+.liquid-nutrition-guide {
+    padding: 100px 0;
+    position: relative;
+}
+
+.liquid-section-header {
+    margin-bottom: 5rem;
+}
+
+.liquid-section-title {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--liquid-primary), var(--liquid-light), var(--liquid-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.liquid-section-subtitle {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.liquid-guide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 3rem;
+}
+
+.liquid-guide-card {
+    perspective: 1000px;
+}
+
+.liquid-guide-glass {
+    position: relative;
+    background: var(--liquid-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--liquid-glass-border);
+    padding: 3rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.liquid-guide-glass:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.liquid-guide-icon {
+    position: relative;
+    font-size: 4rem;
+    color: var(--liquid-primary);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.liquid-guide-icon-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, var(--liquid-glow), transparent 60%);
+    transform: translate(-50%, -50%);
+    animation: liquidGlow 3s ease-in-out infinite;
+}
+
+.liquid-guide-glass h4 {
+    color: var(--liquid-light);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.liquid-guide-glass p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.liquid-guide-list {
+    list-style: none;
+    padding: 0;
+}
+
+.liquid-guide-list li {
+    padding: 0.8rem 0;
+    color: rgba(255, 255, 255, 0.7);
+    border-bottom: 1px solid var(--liquid-glass-border);
+    transition: color 0.3s ease;
+}
+
+.liquid-guide-list li:hover {
+    color: var(--liquid-primary);
+}
+
+.liquid-guide-list li:last-child {
+    border-bottom: none;
+}
+
+.liquid-guide-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, var(--liquid-glow), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.liquid-guide-glass:hover .liquid-guide-glow {
+    opacity: 0.1;
+}
+
+/* Benefits Section */
+.liquid-benefits-section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.liquid-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+}
+
+.liquid-benefit-card {
+    perspective: 1000px;
+}
+
+.liquid-benefit-glass {
+    position: relative;
+    background: var(--liquid-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--liquid-glass-border);
+    padding: 3rem 2rem;
+    border-radius: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.liquid-benefit-glass:hover {
+    transform: scale(1.05) rotateY(5deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.liquid-benefit-icon {
+    position: relative;
+    font-size: 4rem;
+    color: var(--liquid-primary);
+    margin-bottom: 2rem;
+}
+
+.liquid-benefit-icon-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, var(--liquid-glow), transparent 60%);
+    transform: translate(-50%, -50%);
+    animation: liquidGlow 3s ease-in-out infinite;
+}
+
+.liquid-benefit-glass h4 {
+    color: var(--liquid-light);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.liquid-benefit-glass p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+.liquid-benefit-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--liquid-glow), transparent 50%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.liquid-benefit-glass:hover .liquid-benefit-glow {
+    opacity: 0.2;
+}
+
+/* CTA Section */
+.liquid-cta-section {
+    position: relative;
+    padding: 100px 0;
+    color: var(--liquid-light);
+    overflow: hidden;
+}
+
+.liquid-cta-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.liquid-cta-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.8;
+    animation: liquidFloat 25s ease-in-out infinite;
+}
+
+.liquid-cta-blob.blob-1 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(45deg, var(--liquid-primary), var(--liquid-secondary));
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.liquid-cta-blob.blob-2 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(45deg, var(--liquid-accent), var(--liquid-primary));
+    bottom: 10%;
+    right: 20%;
+    animation-delay: -12s;
+}
+
+.liquid-cta-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.liquid-cta-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, var(--liquid-primary), var(--liquid-light), var(--liquid-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.liquid-cta-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.liquid-cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.liquid-cta-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    border: 1px solid var(--liquid-glass-border);
+}
+
+.liquid-cta-button.primary {
+    background: var(--liquid-glass);
+    backdrop-filter: blur(20px);
+}
+
+.liquid-cta-button.secondary {
+    background: transparent;
+    border: 2px solid var(--liquid-primary);
+}
+
+.liquid-cta-btn-bg {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transition: left 0.3s ease;
+}
+
+.liquid-cta-button.primary .liquid-cta-btn-bg {
+    background: linear-gradient(45deg, var(--liquid-primary), var(--liquid-secondary));
+}
+
+.liquid-cta-button.secondary .liquid-cta-btn-bg {
+    background: linear-gradient(45deg, var(--liquid-primary), var(--liquid-accent));
+}
+
+.liquid-cta-button:hover .liquid-cta-btn-bg {
+    left: 0;
+}
+
+.liquid-cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px var(--liquid-glow);
+}
+
+/* Animations */
+@keyframes liquidFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-30px) rotate(120deg); }
+    66% { transform: translateY(20px) rotate(240deg); }
+}
+
+@keyframes liquidPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes liquidRipple {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+}
+
+@keyframes liquidFlow {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+@keyframes liquidGlow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes liquidBarGlow {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 0.6; }
+}
+
+@keyframes liquidPointGlow {
+    0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .liquid-title { font-size: 3rem; }
+    .liquid-section-title { font-size: 2.5rem; }
+    .liquid-cta-title { font-size: 2.5rem; }
+}
+
+@media (max-width: 768px) {
+    .liquid-title {
+        font-size: 2.5rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .liquid-process-flow {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .liquid-connector {
+        width: 4px;
+        height: 50px;
+        transform: rotate(90deg);
+    }
+    
+    .liquid-step-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .liquid-step-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .liquid-guide-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .liquid-benefits-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .liquid-cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .liquid-cta-button {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    .liquid-chart-bars {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .liquid-glass-panel {
+        padding: 2rem;
+    }
+    
+    .liquid-guide-glass {
+        padding: 2rem;
+    }
+    
+    .liquid-benefit-glass {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* AOS Animations */
+[data-aos] {
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+}
+
+[data-aos="fade-right"] {
+    transform: translateX(-50px);
+}
+
+[data-aos="fade-right"].aos-animate {
+    transform: translateX(0);
+}
+
+[data-aos="fade-left"] {
+    transform: translateX(50px);
+}
+
+[data-aos="fade-left"].aos-animate {
+    transform: translateX(0);
+}
+
+[data-aos="zoom-in"] {
+    transform: scale(0.8);
+}
+
+[data-aos="zoom-in"].aos-animate {
+    transform: scale(1);
+}
+
+[data-aos="flip-up"] {
+    transform: perspective(2500px) rotateX(-100deg);
+}
+
+[data-aos="flip-up"].aos-animate {
+    transform: perspective(2500px) rotateX(0);
+}
+
+[data-aos="fade-up"] {
+    transform: translateY(50px);
+}
+
+[data-aos="fade-up"].aos-animate {
+    transform: translateY(0);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Liquid step navigation
+    const liquidSteps = document.querySelectorAll('.liquid-step');
+    const stepContainers = document.querySelectorAll('.liquid-step-container');
+    
+    liquidSteps.forEach(step => {
+        step.addEventListener('click', () => {
+            const stepNumber = step.getAttribute('data-step');
+            
+            // Update active step
+            liquidSteps.forEach(s => s.classList.remove('active'));
+            step.classList.add('active');
+            
+            // Scroll to corresponding step
+            const targetContainer = document.querySelector(`.liquid-step-container[data-step="${stepNumber}"]`);
+            if (targetContainer) {
+                targetContainer.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+            }
+        });
+    });
+
+    // Enhanced AOS implementation
+    const initLiquidAOS = () => {
+        const elements = document.querySelectorAll('[data-aos]');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.getAttribute('data-aos-delay') || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('aos-animate');
+                    }, parseInt(delay));
+                }
+            });
+        }, { threshold: 0.1 });
+
+        elements.forEach(element => {
+            observer.observe(element);
+        });
+    };
+
+    // Initialize liquid animations
+    initLiquidAOS();
+
+    // Liquid button interactions
+    const liquidBtns = document.querySelectorAll('.liquid-action-btn, .liquid-cta-button');
+    liquidBtns.forEach(btn => {
+        btn.addEventListener('mouseenter', () => {
+            btn.style.transform = 'translateY(-3px)';
+        });
+        
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translateY(0)';
+        });
+        
+        // Add ripple effect on click
+        btn.addEventListener('click', function(e) {
+            const ripple = document.createElement('div');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                left: ${x}px;
+                top: ${y}px;
+                background: radial-gradient(circle, var(--liquid-glow), transparent);
+                border-radius: 50%;
+                pointer-events: none;
+                transform: scale(0);
+                animation: rippleEffect 0.6s ease-out;
+                z-index: 1;
+            `;
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+
+    // Animate nutrition bars
+    const animateNutritionBars = () => {
+        const bars = document.querySelectorAll('.liquid-nutrient-bar');
+        bars.forEach(bar => {
+            const height = bar.getAttribute('data-height');
+            const fill = bar.querySelector('.liquid-bar-fill');
+            if (fill && height) {
+                setTimeout(() => {
+                    fill.style.height = height + '%';
+                }, 500);
+            }
+        });
+    };
+
+    // Animate progress chart
+    const animateProgressChart = () => {
+        const dataPoints = document.querySelectorAll('.liquid-data-point');
+        dataPoints.forEach((point, index) => {
+            setTimeout(() => {
+                point.style.opacity = '1';
+                point.style.animation = 'liquidPointGlow 2s ease-in-out infinite';
+            }, index * 200);
+        });
+    };
+
+    // Initialize chart animations when in view
+    const chartObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (entry.target.classList.contains('liquid-macronutrient-chart')) {
+                    animateNutritionBars();
+                } else if (entry.target.classList.contains('liquid-progress-chart')) {
+                    animateProgressChart();
+                }
+            }
+        });
+    });
+
+    const nutritionChart = document.querySelector('.liquid-macronutrient-chart');
+    const progressChart = document.querySelector('.liquid-progress-chart');
+    
+    if (nutritionChart) chartObserver.observe(nutritionChart);
+    if (progressChart) chartObserver.observe(progressChart);
+
+    // Parallax effect for blobs
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const parallax = scrolled * 0.5;
+        
+        document.querySelectorAll('.liquid-blob').forEach((blob, index) => {
+            const speed = 0.2 + (index * 0.1);
+            blob.style.transform = `translateY(${parallax * speed}px) rotate(${scrolled * 0.1}deg)`;
+        });
+    });
+
+    // Add CSS for ripple animation
+    const rippleStyle = document.createElement('style');
+    rippleStyle.textContent = `
+        @keyframes rippleEffect {
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(rippleStyle);
+
+    // Liquid cursor trail effect (optional)
+    const createLiquidTrail = (e) => {
+        const trail = document.createElement('div');
+        trail.className = 'liquid-cursor-trail';
+        trail.style.cssText = `
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: var(--liquid-primary);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            left: ${e.clientX - 3}px;
+            top: ${e.clientY - 3}px;
+            animation: trailFade 1s ease-out forwards;
+            box-shadow: 0 0 10px var(--liquid-glow);
+        `;
+        
+        document.body.appendChild(trail);
+        
+        setTimeout(() => {
+            trail.remove();
+        }, 1000);
+    };
+
+    // Add trail animation
+    const trailStyle = document.createElement('style');
+    trailStyle.textContent = `
+        @keyframes trailFade {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0); }
+        }
+    `;
+    document.head.appendChild(trailStyle);
+
+    // Enable cursor trail on hover over interactive elements
+    document.querySelectorAll('.liquid-action-btn, .liquid-cta-button, .liquid-step').forEach(element => {
+        element.addEventListener('mousemove', createLiquidTrail);
+    });
+});
+</script>
+{% endblock %}

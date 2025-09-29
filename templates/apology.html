@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Apology
+{% endblock %}
+
+{% block mainzz %}
+    <!-- Toast Notification -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="apologyToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-warning">
+                <strong class="me-auto">Notice</strong>
+                <small id="countdown" class="ms-2">5</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body text-black">
+                {{ apology }}<br>
+                Redirecting in <span id="countdown-text">5</span> seconds...
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toastEl = document.getElementById('apologyToast');
+            const toast = new bootstrap.Toast(toastEl);
+            const countdownEl = document.getElementById('countdown');
+            const countdownTextEl = document.getElementById('countdown-text');
+            
+            let seconds = 5;
+            
+            // Show the toast
+            toast.show();
+            
+            // Start countdown
+            const countdown = setInterval(function() {
+                seconds--;
+                countdownEl.textContent = seconds;
+                countdownTextEl.textContent = seconds;
+                
+                if (seconds <= 0) {
+                    clearInterval(countdown);
+                    toast.hide();
+                    setTimeout(() => window.history.back(), 400); // Small delay after hide
+                }
+            }, 1000);
+        });
+    </script>
+{% endblock %}
